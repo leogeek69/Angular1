@@ -1,1 +1,7 @@
-<p>task-list works!</p>
+<h2>Listes des tâches</h2>
+@for (task of tasks; track task; let i = $index){
+    <li>{{task}} + {{$index}}</li>
+    <button (click)="delTask()">supprimer</button>
+}
+<input [ngModel]="newTask()" (ngModelChange)="newTask.set($event)">
+<button (click)="addTask()">ajout</button>
