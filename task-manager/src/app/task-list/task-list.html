@@ -1,7 +1,9 @@
 <h2>Listes des tâches</h2>
 @for (task of tasks; track task; let i = $index){
-    <li>{{task}} + {{$index}}</li>
-    <button (click)="delTask()">supprimer</button>
+    <li>{{task.nom}} + {{i}}</li>
+    <input type="checkbox" [ngModel]="task.etat">
+    <button (click)="spliceTasks(i)">Supp by index</button>
+    <a [routerLink]="['/task', i]">Détails</a>
 }
-<input [ngModel]="newTask()" (ngModelChange)="newTask.set($event)">
+<input [ngModel]="newTask()" (ngModelChange)="newTask.set($event)" placeholder="Ajouter tâche...">
 <button (click)="addTask()">ajout</button>
